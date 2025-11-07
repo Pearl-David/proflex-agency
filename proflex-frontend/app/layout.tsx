@@ -1,12 +1,13 @@
 import "./globals.css";
 import Link from "next/link";
+import React, { ReactNode } from "react";
 
 export const metadata = {
   title: "ProFlex Freelance Agency",
   description: "Connecting Freelancers with Global Work Opportunities",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="font-sans bg-gray-50 text-gray-900">
