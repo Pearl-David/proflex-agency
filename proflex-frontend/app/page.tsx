@@ -1,4 +1,13 @@
+"use client";
+
+import React, { FormEvent } from "react";
+
 export default function Apply() {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert("Application submitted successfully! Our team will contact you soon.");
+  };
+
   return (
     <main className="font-sans bg-gray-50 text-gray-900 min-h-screen flex flex-col">
       {/* Navigation Bar */}
@@ -37,15 +46,7 @@ export default function Apply() {
             Freelancer Application Form
           </h3>
 
-          <form
-            action="#"
-            method="POST"
-            className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Application submitted successfully! Our team will contact you soon.");
-            }}
-          >
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Full Name */}
             <div>
               <label className="block text-gray-700 font-medium mb-2">Full Name</label>
@@ -85,7 +86,9 @@ export default function Apply() {
 
             {/* Resume Upload */}
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Upload Resume (PDF or DOCX)</label>
+              <label className="block text-gray-700 font-medium mb-2">
+                Upload Resume (PDF or DOCX)
+              </label>
               <input
                 type="file"
                 accept=".pdf,.doc,.docx"
@@ -99,7 +102,7 @@ export default function Apply() {
               <label className="block text-gray-700 font-medium mb-2">Cover Letter</label>
               <textarea
                 required
-                rows="4"
+                rows={4}
                 placeholder="Write a short cover letter highlighting your experience..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200"
               ></textarea>
